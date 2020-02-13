@@ -25,7 +25,6 @@ function getProcessInfo() {
         //開啟子視窗
         myWindow = window.open("second.html", "校內專題~");
     }
-
     
     function closeWindow() {
         myWindow.close();

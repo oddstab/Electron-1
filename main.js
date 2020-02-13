@@ -1,5 +1,5 @@
 // import {app, BrowserWindow} from "electron"
-const { app, BrowserWindow } = require("electron")
+const { app, BrowserWindow, BrowserView } = require("electron")
 
 //BrowserWindow
 //https://www.electronjs.org/docs/api/browser-window
@@ -24,6 +24,23 @@ app.on("ready", () => {
         }
     });
     mainWindow.loadFile("index.html");
+
+
+    const view = new BrowserView();
+
+    //設定BrowserView
+    view.setBounds({
+        x: 20,
+        y: 20,
+        width: 300,
+        height: 200
+    });
+    
+    //讀取內容
+    view.webContents.loadURL("https://www.microsoft.com/zh-tw");
+
+    //放到mainWindow中
+    mainWindow.setBrowserView(view);
     mainWindow.webContents.openDevTools();
     mainWindow.on("closed", () => {
         mainWindow = null;

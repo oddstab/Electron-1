@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>HelloWorld(title from index.html)</title>
+    <link rel="stylesheet" href="helloWorld2.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <h2>彈出子視窗</h2>
+        <button id="sub-window">按我彈出子視窗</button>
+        <button id="close-sub-window">關閉子視窗</button>
+    </div>
+    <hr/>
+    <div>
+        <h2>WebView</h2>
+        <!-- 加preload後可以注入自己寫的script -->
+        <webview id="wb" src="https://google.com/" preload="webview_scripts/preload.js"></webview>
+        <div id="loading">loading...</div>
+    </div>
+    <hr/>
+    <div>
+        <h2>File物件</h2>
+        <div class="for-file-drag" id="holder">
+            <span>往這裡拖可以顯示路徑與讀取檔案</span>
+        </div>
+    </div>
+    <hr/>
+    <div>
+        <h2>系統資訊</h2>
+        <button onclick="getProcessInfo()">
+            按我取得資訊(in console)
+        </button>
+    </div>
+    <!-- lazy load -->
+    <script src="renderer.js"></script>
+</body>
+
+</html>

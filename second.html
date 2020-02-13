@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我是第二個頁面哦!</title>
+</head>
+
+<body>
+    <div>
+        <h2>我是第二個頁面</h2>
+        <button id="btn-for-father">
+            按我向父視窗傳遞資料
+        </button>
+        <p>
+            想要在父視窗中接受到的話必須在父視窗中使用 <br/>
+            window.addEventListener("message",(msg)=>{
+                //...
+            });
+        </p>
+    </div>
+    <script>
+        var btn = document.getElementById("btn-for-father");
+        btn.addEventListener("click", () => {
+            window.opener.postMessage("呵呵 成功了。我是第二個視窗!!");
+        });
+    </script>
+</body>
+
+</html>
